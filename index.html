@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO APP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+</head>
+<body>
+
+   
+
+    <input id="inputid" type="text">
+
+    <button onclick="addTask()">Add New Task</button>
+
+    <h1 id="totaltask"></h1>
+
+    <div id="container">
+    
+    </div>
+
+<script>
+
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+function addTask() {
+    let container = document.getElementById("container");
+    container.innerHTML = "";
+
+    let newTask = document.getElementById("inputid").value;
+
+    // Yeni görev boşsa, işlem yapma
+    if (newTask.trim() === "") {
+        alert("Please Enter a Task");
+        tasks.reverse();
+        updateTasks();
+       
+    }
+
+    else {
+
+    tasks.push(newTask);
+
+    updateTasks();
+
+    }
+
+}
+
+
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    updateTasks();
+}
+
+function updateTasks() {
+
+    let totaltask = document.getElementById("totaltask");
+
+    totaltask.innerHTML = "There are " + tasks.length + " tasks to do" ;
+
+    let container = document.getElementById("container");
+
+    container.innerHTML = "";
+
+    tasks.reverse();
+
+    tasks.map((task, index) => {
+        container.innerHTML += `
+            <div class="newtask">
+                <h1>${task}</h1>
+                <img class="delete" src="imgs/delete.png" onclick="deleteTask(${index})">
+            </div>
+        `;
+    });
+
+    // Update local storage
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+// Initial rendering
+updateTasks();
+
+    document.getElementById("inputid").addEventListener("click", function() {
+    this.value = ""; // input alanının değerini temizle
+});
+
+
+
+</script>
+</body>
+</html>

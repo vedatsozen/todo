@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+* {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    box-sizing: border-box;
+    font-size: 16px !important;
+    letter-spacing: 4px;
+
+}
+
+body {
+    text-align: center;
+    background-color: #6B8F71;
+}
+
+input {
+    height:40px;
+    width:90%;
+    margin: auto;
+    text-align: center;
+}
+
+button {
+    margin: auto;
+    margin-top: 20px;
+    display: block;
+    background-color: #1D1E18;
+    color: white;
+    border: none;
+    height: 30px;
+    width:fit-content;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+ 
+}
+
+input:focus {
+    outline: none;
+}
+
+button:active {
+    transform: translateY(5px);
+}
+
+#container {
+    height: fit-content;
+    width:100%;
+    margin: auto;
+    padding: 20px;
+}
+
+.newtask {
+    height:60px;
+    width:60%;
+    margin: auto;
+    margin-top: 10px;
+    background-color: #1D1E18;
+    color: #6B8F71;
+    justify-content: center;
+    align-items:center;
+    font-size: 15px;
+    letter-spacing: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px 10px;
+}
+
+.newtask > h1 {
+    margin: auto;
+    margin-left: 5px;
+}
+
+.newtask > img {
+    margin: auto;
+    margin-right: 5px;
+    height:30px;
+    width:auto;
+    cursor: pointer;
+}
+
+h1#totaltask {
+    margin: auto;
+    margin-top: 20px;
+    background-color: #1D1E18;
+    color:#FA5252;
+    width: fit-content;
+    padding: 10px;
+}
+
